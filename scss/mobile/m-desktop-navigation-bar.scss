@@ -1,0 +1,21 @@
+@if $mobile_navigation_toggle_enabled == "false" {
+  #navigation-bar {
+    flex-wrap: nowrap;
+    overflow: auto;
+    li {
+      border: none;
+      a {
+        white-space: nowrap;
+      }
+    }
+  }
+  .navigation-controls {
+    flex: 1;
+    .fk-d-button-tooltip {
+      flex: 1;
+      #create-topic {
+        flex: 1;
+      }
+    }
+  }
+}

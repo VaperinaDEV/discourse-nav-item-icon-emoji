@@ -1,0 +1,8 @@
+$dark-theme-emoji-nav-filter: brightness(0) invert(1);
+$light-theme-emoji-nav-filter: brightness(0);
+
+$emoji-nav-filter: dark-light-choose($light-theme-emoji-nav-filter, $dark-theme-emoji-nav-filter);
+
+:root {
+  --emoji-nav-filter: #{$emoji-nav-filter};
+}

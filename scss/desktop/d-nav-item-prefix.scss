@@ -1,0 +1,7 @@
+@import "str-to-list";
+@import "mixins";
+
+#navigation-bar li {  
+  @include icon-rule;
+  @include emoji-rule;
+}

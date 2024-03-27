@@ -1,0 +1,40 @@
+en:
+  theme_metadata:
+    description: "Add icon or emoji before nav item"
+    settings:
+      nav_item_prefix: |
+        <strong>Colon delimited in this order:</strong> <br>
+
+        <h2>Icon</h2>
+        If you want to add icon before a nav item: <br>
+        <code>icon:nav-item:icon-set:icon-name:icon-color</code> <br><br>
+
+        First you have to define the type which is <code>icon</code> if you want to add icon before the nav item. <br>
+        <li><strong>nav-item:</strong> latest, hot, new, unread, categories etc... <br>
+        <a href="/admin/site_settings/category/all_results?filter=top%20menu" target="_blank">You can find here your top menu (nav-item) set up in your site settings.</a></li>
+        <li><strong>icon-set:</strong> brands, regular, solid</li>
+        <li><strong>icon-color:</strong> <code>currentColor</code>, HEX or color variable</li>
+        <br>
+        <strong>For example:</strong> <br>
+        <code>icon:latest:solid:rocket:currentColor</code> <br>
+        <code>icon:top:regular:star:var(--gold)</code> <br>
+        <code>icon:unseen:solid:compass:#228C22</code>
+        <br><br>
+
+        <hr>
+        
+        <h2>Emoji</h2>
+        If you want to add emoji before a nav item: <br>
+        <code>emoji:nav-item:emoji-set:emoji-name:filter</code> <br><br>
+
+        First you have to define the type which is <code>emoji</code> if you want to add emoji before the nav item. <br>        
+        <li><strong>nav-item:</strong> latest, hot, new, unread, categories etc... <br>
+        <a href="/admin/site_settings/category/all_results?filter=top%20menu" target="_blank">You can find here your top menu (nav-item) set up in your site settings.</a></li>        <li><strong>emoji-set:</strong> apple, google, twitter, win10, google_classic, facebook_messenger</li>
+        <li><strong>filter:</strong> It makes the emoji color black in light mode and white in dark mode. If the emoji hovered or active it will be reveal with a transition. (optional)</li>
+        <br>
+        <strong>For example:</strong> <br>
+        <code>emoji:latest:twitter:rocket:filter</code> <br>
+        <code>emoji:top:google:star</code> <br>
+        <code>emoji:new:facebook_messenger:bell</code>
+      mobile_navigation_toggle_enabled: |
+        Disable it to use the desktop navigation bar on mobile view.

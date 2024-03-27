@@ -1,0 +1,6 @@
+nav_item_prefix:
+  default: ""
+  type: "list"
+mobile_navigation_toggle_enabled:
+  type: bool
+  default: true

@@ -1,0 +1,9 @@
+@import "str-to-list";
+@import "mixins";
+
+@if $mobile_navigation_toggle_enabled == "false" {
+  #navigation-bar li {
+    @include icon-rule;
+    @include emoji-rule;
+  }
+}

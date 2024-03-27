@@ -1,0 +1,87 @@
+@import "svg-icons/fontawesome/brands";
+@import "svg-icons/fontawesome/regular";
+@import "svg-icons/fontawesome/solid";
+
+$svg-prefix: 'data:image/svg+xml;utf-8,';
+
+@mixin svg-icon($icon-set, $icon-name, $icon-color, $width, $height) {
+  
+  @if $icon-set == 'brands' {
+    $svg-url: $svg-prefix + map-get($brands, $icon-name);
+    -webkit-mask-image: url($svg-url);
+  }
+  @if $icon-set == 'regular' {
+    $svg-url: $svg-prefix + map-get($regular, $icon-name);
+    -webkit-mask-image: url($svg-url);
+  }
+  @if $icon-set == 'solid' {
+    $svg-url: $svg-prefix + map-get($solid, $icon-name);
+    -webkit-mask-image: url($svg-url);
+  }
+  
+  width: $width;
+  height: $height;
+  background: $icon-color;
+  -webkit-mask-size: $width $height;
+  -webkit-mask-repeat: no-repeat;
+}
+
+@mixin emoji($emoji-set, $emoji-name, $width, $height) {  
+  width: $width;
+  height: $height;
+  background-image: url(../images/emoji/#{$emoji-set}/#{$emoji-name}.png?v=12);
+  background-size: $width $height;
+  background-repeat: no-repeat;
+}
+
+@mixin icon-rule {
+  @each $prefix-type, $nav-item, $icon-set, $icon-name, $icon-color in $nested-list {
+    @if $prefix-type == "icon" {
+      &.nav-item {
+        &_#{$nav-item} {
+          a {
+            gap: 0.5em;
+            &:before {
+              content: "";
+              @include svg-icon(#{$icon-set}, #{$icon-name}, #{$icon-color}, 1em, 1em);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin emoji-rule {
+  @each $prefix-type, $nav-item, $emoji-set, $emoji-name, $filter in $nested-list {
+    @if $prefix-type == "emoji" {
+      &.nav-item {
+        &_#{$nav-item} {
+          a {
+            gap: 0.5em;
+
+            @if $filter == "filter" {
+              &:focus,
+              &:hover,
+              &.active {
+                &:before {
+                  filter: none;
+                }
+              }
+            }
+            
+            &:before {
+              content: "";
+              @include emoji(#{$emoji-set}, #{$emoji-name}, 1em, 1em);
+
+              @if $filter == "filter" {
+                filter: var(--emoji-nav-filter);
+                transition: filter 0.25s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
