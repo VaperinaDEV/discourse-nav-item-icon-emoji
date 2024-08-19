@@ -41,7 +41,10 @@ $svg-prefix: 'data:image/svg+xml;utf-8,';
       &.nav-item {
         &_#{$nav-item} {
           a {
+            display: flex;
+            align-items: center;
             gap: 0.5em;
+            
             &:before {
               content: "";
               @include svg-icon(#{$icon-set}, #{$icon-name}, #{$icon-color}, 1em, 1em);
@@ -60,8 +63,10 @@ $svg-prefix: 'data:image/svg+xml;utf-8,';
       &.nav-item {
         &_#{$nav-item} {
           a {
+            display: flex;
+            align-items: center;
             gap: 0.5em;
-
+            
             @if $filter == "filter" {
               &:focus,
               &:hover,
