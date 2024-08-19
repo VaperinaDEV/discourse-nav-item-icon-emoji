@@ -1,0 +1,22 @@
+@import "str-to-list";
+@import "mixins";
+
+// Navigation bar modal
+.fk-d-menu-modal {
+  &.list-control-toggle-link-content {
+    .dropdown-menu__item {
+      a {
+        &:before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          background-size: 20px 20px;
+          background-repeat: no-repeat;
+        }
+      }
+      
+      @include icon-rule;
+      @include emoji-rule;
+    }
+  }
+}
