@@ -37,10 +37,14 @@ $svg-prefix: 'data:image/svg+xml;utf-8,';
 @mixin icon-rule {
   @each $prefix-type, $nav-item, $icon-set, $icon-name, $icon-color in $nested-list {
     @if $prefix-type == "icon" {
+      .nav-item, // mobile version
       &.nav-item {
         &_#{$nav-item} {
           a {
+            display: flex;
+            align-items: center;
             gap: 0.5em;
+            
             &:before {
               content: "";
               @include svg-icon(#{$icon-set}, #{$icon-name}, #{$icon-color}, 1em, 1em);
@@ -55,17 +59,30 @@ $svg-prefix: 'data:image/svg+xml;utf-8,';
 @mixin emoji-rule {
   @each $prefix-type, $nav-item, $emoji-set, $emoji-name, $filter in $nested-list {
     @if $prefix-type == "emoji" {
+      .nav-item, // mobile version
       &.nav-item {
         &_#{$nav-item} {
           a {
+            display: flex;
+            align-items: center;
             gap: 0.5em;
-
+            
             @if $filter == "filter" {
-              &:focus,
-              &:hover,
-              &.active {
-                &:before {
-                  filter: none;
+              .discourse-no-touch & {
+                &:focus,
+                &:hover,
+                &.active {
+                  &:before {
+                    filter: none;
+                  }
+                }
+              }
+              .discourse-touch & {
+                &:hover,
+                &.active {
+                  &:before {
+                    filter: none;
+                  }
                 }
               }
             }
