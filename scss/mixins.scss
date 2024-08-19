@@ -37,6 +37,7 @@ $svg-prefix: 'data:image/svg+xml;utf-8,';
 @mixin icon-rule {
   @each $prefix-type, $nav-item, $icon-set, $icon-name, $icon-color in $nested-list {
     @if $prefix-type == "icon" {
+      .nav-item, // mobile version
       &.nav-item {
         &_#{$nav-item} {
           a {
@@ -55,6 +56,7 @@ $svg-prefix: 'data:image/svg+xml;utf-8,';
 @mixin emoji-rule {
   @each $prefix-type, $nav-item, $emoji-set, $emoji-name, $filter in $nested-list {
     @if $prefix-type == "emoji" {
+      .nav-item, // mobile version
       &.nav-item {
         &_#{$nav-item} {
           a {
