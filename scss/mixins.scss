@@ -68,11 +68,21 @@ $svg-prefix: 'data:image/svg+xml;utf-8,';
             gap: 0.5em;
             
             @if $filter == "filter" {
-              &:focus,
-              &:hover,
-              &.active {
-                &:before {
-                  filter: none;
+              .discourse-no-touch & {
+                &:focus,
+                &:hover,
+                &.active {
+                  &:before {
+                    filter: none;
+                  }
+                }
+              }
+              .discourse-touch & {
+                &:hover,
+                &.active {
+                  &:before {
+                    filter: none;
+                  }
                 }
               }
             }
